@@ -1,0 +1,18 @@
+{
+  "name": "pulpo",
+  "version": "1.0.0",
+  "description": "aplicacion que en cada solicitud obtiene los datos de la API de Openaid y los agregue en el formato especificado. en respuesta a \"pulpo challenge\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "pulpo"
+  ],
+  "author": "Jorge Adrian Puc Carrillo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "helmet": "^5.0.2"
+  }
+}

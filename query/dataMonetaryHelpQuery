@@ -1,0 +1,42 @@
+const msg = require('../utils/message');
+const https = require('https')
+class dataMonetaryHelpQuery {
+    async dataMonetaryHelp(countryId, year) {
+        try{
+            //const data = JSON.stringify({}) //elemento oculto preparado para su uso en caso de ser necesario
+            const queryPath = '/datastore/activity/iati?q=description_narrative:NGO&q.op=AND&wt=json&df=title&q.op=AND&sort=score+asc'
+            const options = {
+                hostname: 'api.iatistandard.org',
+                port: 443,
+                path: queryPath,
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Ocp-Apim-Subscription-Key':'41d86aa7d2cf404198b02d6b016ee632'
+                }
+            }
+            return await new Promise((resolve, reject) => {
+                const req = https.request(options, (res) => {
+                    let responseBody = '';
+        
+                    res.on('data', (chunk) => {
+                        responseBody += chunk;
+                    });
+                    res.on('end', () => {
+                        resolve(msg.msgSuccess(200,'exito',responseBody)); //convirtiendo respuesta a objeto para distincion de sus elementos y el tipo de respuesta en caso de ser necesario
+                    });
+                });
+        
+                req.on('error', (err) => {
+                    reject(msg.msgError(400, 'no se pudo obtener información', err)); //convirtiendo error a objeto para distincion de sus elementos y el tipo de respuesta en caso de ser necesario
+                });
+            });
+        }catch(error){
+            console.log(error)
+            console.log('fallo-----------------')
+            mensaje = msg.msgError(400, 'no se pudo obtener información', error);
+            return reject(mensaje);
+        }
+    }
+}
+module.exports = new dataMonetaryHelpQuery()

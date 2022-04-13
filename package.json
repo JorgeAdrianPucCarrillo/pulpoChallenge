@@ -12,6 +12,7 @@
   "author": "Jorge Adrian Puc Carrillo",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.1",
     "express": "^4.17.3",
     "helmet": "^5.0.2"
   }

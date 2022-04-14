@@ -1,0 +1,33 @@
+
+ *  teniendo en cuenta estos 2 ejemplos podemos ver que si la transaccion no fue realizada con exito entonces el sistema no registra la fecha o el monto 
+ * esto es que varios registros estan vacios, pues aun que el registro sea identico este si se agrega con todo y elementros duplicados
+    {
+        transaction_value: [ 12187.61, 12187.61, 10395.23, 10395.23 ],
+        participating_org_ref: [ 'US-USAGOV', 'US-GOV-14', 'US-GOV-14', '' ],
+        participating_org_narrative: [
+        'The federal government of the United States',
+        'U.S. Department of Health and Human Services',
+        'U.S. Department of Health and Human Services',
+        'Not Applicable'
+        ],
+        transaction_value_value_date: [
+        '2012-10-01T00:00:00Z',
+        '2012-10-01T00:00:00Z',
+        '2012-10-01T00:00:00Z',
+        '2012-10-01T00:00:00Z'
+        ]
+    },
+
+    // Este por el contrario no tiene la informacion que se busca mas que en 2 transacciones exitosas
+    {
+        transaction_value: [ 8880, 112180 ],
+        participating_org_ref: [ 'US-USAGOV', 'US-GOV-11', 'US-GOV-30', 'XI-DUNS-095512708' ],
+        participating_org_narrative: [
+        'The federal government of the United States',
+        'U.S. Department of State',
+        'Executive Office of the President',
+        'RAVENTEK SOLUTIONS'
+        ],
+        transaction_value_value_date: [ '2019-03-19T00:00:00Z', '2019-02-08T00:00:00Z' ]
+    },
+         

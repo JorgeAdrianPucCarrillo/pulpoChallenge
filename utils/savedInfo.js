@@ -7,6 +7,16 @@ function writeRequest (info, key, year) {
         console.log(e)
     }
 }
+
+function readRequest (key, year) {
+    try{
+        return fs.readFileSync("./requestFiles/searched key "+key+" on "+year+".txt","utf8");
+    }catch(e){
+        console.log(e)
+    }
+    return null
+}
 module.exports = {
-    writeRequest
+    writeRequest,
+    readRequest
 }

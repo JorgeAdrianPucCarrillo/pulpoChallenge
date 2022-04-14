@@ -35,4 +35,11 @@
         se ha optado por usar promise en lugar de async await en las funciones de writeRequest()
         debido a que el usuario no tiene necesidad de esperar a que el sistema termine de guardar la informacion 
         para poder recibir su respuesta
+
+    //  el Middleware debe cumplir en mostrar los archivos de 5 años a atras
+        no de los ultimo 5 años que se tengan registro
+        asi que en dado caso que en el rango de AñoSolicitado - (AñoSolicitado -5) solo 
+        se encuentre 1 unico registros o ningun registro
+        el sistema mostrara ello en lugar de buscar los 5 ultimos años que 
+        si tengan registro
          

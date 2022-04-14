@@ -1,0 +1,1 @@
+{"2016":{"UK - Foreign, Commonwealth and Development Office":51210},"2017":{"AECID":5500},"2018":{"CARE International UK":230356,"Concern Worldwide (UK)":75814,"Concern Worldwide":75817,"AECID":12000,"EMBAJADA JARTUM (Sudán)":13500},"2019":{"EMBAJADA JARTUM (Sudán)":4000,"AECID":94153.16,"AG-SAP":5985.51},"2020":{"EMBAJADA JARTUM (Sudán)":11167.65,"Cajero pagador central":77000}}

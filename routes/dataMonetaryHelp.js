@@ -30,5 +30,5 @@ module.exports = (app) => {
             "details": {}
      * }
     */
-    app.get('/data/monetary/help/:countryId/:year', dataMonetaryHelpController.infromation);
+    app.get('/data/monetary/help/:countryId/:year', dataMonetaryHelpController.informationRequest);
 }

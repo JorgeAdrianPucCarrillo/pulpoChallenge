@@ -1,9 +1,8 @@
 function sortInformation(info) {
-    const sorted = info.docs
-    const paramsName = ['transaction_value','participating_org_narrative','transaction_value_value_date','participating_org_ref']    
-    const tableArr = []
+    const sortedDocs = info.docs 
+    const tableArray = []
     // recorremos cada ojeto de la respuestam dado que el servidor IATI nos regresa los "row de la tabla en un 'desorden'"
-    sorted.forEach((item,i) => {
+    sortedDocs.forEach((item,i) => {
         let auxBody = {}
         let maxLength = item.participating_org_narrative.length || 0
         //reconstruimos el 'row' (o fila) de la tabla, en formato Objeto para su manejo 
@@ -15,12 +14,12 @@ function sortInformation(info) {
                 participating_org_ref:item.participating_org_ref[tableIndex] || '',
             }
             
-            tableArr.push(auxBody)
+            tableArray.push(auxBody)
         }
     })
     const tableSorted = {}
     // agrupamos por año y organizacion tal como se nos solicita
-    tableArr.forEach(item =>{
+    tableArray.forEach(item =>{
         let dateYear = new Date(item.transaction_value_value_date).getFullYear()
         if (!isNaN(dateYear)){
             tableSorted[dateYear] = (tableSorted[dateYear]) ? tableSorted[dateYear] : {}

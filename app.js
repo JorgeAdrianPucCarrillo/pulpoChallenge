@@ -1,18 +1,10 @@
 var express = require('express'),
-helmet = require('helmet');
-const { json } = require('express/lib/response');
 bodyparser = require('body-parser');
 const config = require('./config/config.js')
 var app = express();
 const server = require('http').Server(app)
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
-app.use(helmet({ // se ha instalado helment como medida de seguridad
-    dnsPrefetchControl: false,
-    frameguard: false,
-    ieNoOpen: false
-}))
-app.set('view engine', 'ejs');
 const routes = require('./routes')
 routes(app)
 try {

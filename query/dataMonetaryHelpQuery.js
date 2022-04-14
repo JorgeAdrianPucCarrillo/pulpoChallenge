@@ -5,16 +5,16 @@ const axios = require('axios');
 class dataMonetaryHelpQuery {
     async dataMonetaryHelp(countryId, year) {
         try{
-            var lessTime = 0
+            let lessTime = 0
             //verificando fecha ------------------------------------------
             try{
                 lessTime=Number(year)-5
                 if (lessTime<0 || lessTime > new Date().getFullYear()){
-                    const mensaje = msg.msgError(400, 'La fecha debe ser una fecha real', e);
+                    const mensaje = msg.msgError(400, 'La fecha debe ser una fecha real');
                     return reject(mensaje);
                 }
             }catch(e){
-                const mensaje = msg.msgError(400, 'La fecha debe ser un año numerico', e);
+                const mensaje = msg.msgError(400, 'La fecha debe ser un año numerico');
                 return reject(mensaje);
             }
 
@@ -36,14 +36,11 @@ class dataMonetaryHelpQuery {
                 saveInfo.writeRequest(resp,countryId, year)
                 return msg.msgSuccess(200,'exito',resp)
             }catch(e){
-                console.log(e)
-                const mensaje = msg.msgError(502, 'error durante la conexion', e);
+                const mensaje = msg.msgError(502, 'error durante la conexion');
                 return mensaje
             }
         }catch(error){
-            console.log(error)
-            console.log('fallo-----------------')
-            mensaje = msg.msgError(400, 'no se pudo obtener información', error);
+            mensaje = msg.msgError(400, 'no se pudo obtener información');
             return mensaje
         }
     }

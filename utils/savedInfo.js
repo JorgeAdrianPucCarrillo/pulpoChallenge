@@ -12,9 +12,8 @@ function readRequest (key, year) {
     try{
         return fs.readFileSync("./requestFiles/searched key "+key+" on "+year+".txt","utf8");
     }catch(e){
-        console.log(e)
+        return null
     }
-    return null
 }
 module.exports = {
     writeRequest,

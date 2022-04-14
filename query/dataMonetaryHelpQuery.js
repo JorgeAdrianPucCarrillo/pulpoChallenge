@@ -1,6 +1,7 @@
 const msg = require('../utils/message');
 const sortInfo = require('../utils/sortInfo');
 const saveInfo = require('../utils/savedInfo');
+const config = require('../config/config.js')
 const axios = require('axios');
 class dataMonetaryHelpQuery {
     async dataMonetaryHelp(countryId, year) {
@@ -27,8 +28,7 @@ class dataMonetaryHelpQuery {
             
             //se decide mantener uriPath como una sola linea de query, con el fin que el usuario pueda modificar lo menos posible este mismo ------------------------------------------
             let uriPath='/datastore/activity/select?q=recipient_country_code:'+countryId+'%20AND%20transaction_value_value_date:['+lessTime+'-01-01T00:00:00Z%20TO%20'+year+'-01-01T00:00:00Z]&fl=transaction_value,participating_org_narrative,transaction_value_value_date,participating_org_ref'
-            const tockenHeader = {headers: {'Ocp-Apim-Subscription-Key':'f5c6777da2b34e85b8e6a9e888394668'}}// test KEY
-            //const tockenHeader = {headers: {'Ocp-Apim-Subscription-Key':'f415c0df32be4cd6824d0c18ee37cec1'}} // jorge carrillo
+            const tockenHeader = {headers: {'Ocp-Apim-Subscription-Key':config.confiLoad().IATIKEY}}
             let hostUrls= 'https://api.iatistandard.org'+uriPath
             try{
                 const response = await axios.get(hostUrls, tockenHeader)

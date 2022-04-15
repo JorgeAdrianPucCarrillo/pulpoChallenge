@@ -1,11 +1,33 @@
-var express = require('express'),
+var express = require('express');
 bodyparser = require('body-parser');
-const config = require('./config/config.js')
+const config = require('./config/config.js');
 var app = express();
-const server = require('http').Server(app)
+const server = require('http').Server(app);
+const path = require('path');
+//swagger docs ----------------
+const swaggerUIDoc = require('swagger-ui-express');
+const swaggerJsDoc = require('swagger-jsdoc');
+const swaggerConfObj={
+  definition:{
+    openapi:"3.0.0",
+    info: {
+      title:"Pulpo Challenge",
+      version:"1.0.0",
+    },
+    servers:[
+      {
+        url:"http://localhost:3000"
+      }
+    ]
+  },
+  apis: [path.join(__dirname,"./routes/*.js")]
+}
+app.use("/api-doc",swaggerUIDoc.serve,swaggerUIDoc.setup(swaggerJsDoc(swaggerConfObj)));
+//app code---------------------
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
-const routes = require('./routes')
+const routes = require('./routes');
+const { servers } = require('mongodb/lib/core/topologies/server');
 routes(app)
 try {
   server.listen(config.confiLoad().port, () => {

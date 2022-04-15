@@ -2,33 +2,35 @@ const dataMonetaryHelpController = require('../controllers/dataMonetaryHelpContr
 
 module.exports = (app) => {
     /**
-     * @api {post} /data/monetary/help/:id/:year
-     * @apiName dataMonetaryHelp
-     * @apiGroup monetaryHelp
-     * 
-     * @apiExample Example usage:
-     *      http://localhost/data/monetary/help/:countryId/:year
-     * 
-     * @apiParam {String} countryId: id del pais del cual se quiere obtener la información
-     *                               id of the country that obtain the data
-     * @apiParam {Number} year: año a partir del cual se quiere obtener la informacion 5 años hacia atras
-     *                          year to obtain the information to the last 5 years
-     * 
-     * 
-     * @apiError no_valid_data information.
-     * 
-     * @apiSuccessExample Success-Response-200:
-     * {
-            "status": 200,
-            "message": "Datos Encontrados",
-            "data": []
-     * }
-     * @apiErrorExample Error-400:
-     * {
-            "status": 400,
-            "message": "ha ocurrido un error al obtener los datos, verifica el ID y el AÑO",
-            "details": {}
-     * }
+     * @swagger
+     * /humanitarian/aid/{countryId}/{year}:
+     *  get:
+     *   summary: Return last five Years Records of humanitarian aid to a country
+     *   tags: [HumanitarianAid]
+     *   parameters:
+     *    - in: path
+     *      name: countryId
+     *      schema:
+     *           type: string
+     *      required: true
+     *      description: String Id of the country who recips the humanitarian aid
+     *    - in: path
+     *      name: year
+     *      schema:
+     *           type: number
+     *      required: true
+     *      description: Year to start the research
+     *   responses:
+     *    200:
+     *     description: records with the organizations and his amounts sorted by year
+     *     content:
+     *      application/json:
+     *       schema:
+     *        type: {}
+     *        items: [{}]
+     *    400:
+     *     description: description about what causes it 
+     *     
     */
-    app.get('/data/monetary/help/:countryId/:year', dataMonetaryHelpController.informationRequest);
+    app.get('/humanitarian/aid/:countryId/:year', dataMonetaryHelpController.informationRequest);
 }

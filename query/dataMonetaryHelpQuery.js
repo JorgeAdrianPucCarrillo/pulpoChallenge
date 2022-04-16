@@ -5,7 +5,6 @@ const expireCache = require('expire-cache');
 const axios = require('axios');
 class dataMonetaryHelpQuery {
     async dataMonetaryHelp(countryId, year) {
-        console.log('inicia')
         try{
             let lessTime = 0
             //verificando fecha ------------------------------------------

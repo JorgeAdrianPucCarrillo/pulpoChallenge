@@ -18,3 +18,7 @@ CONFIGURACION DEL SISTEMA
     el entorno por defecto es "local" en dado caso que el entorno de ejecucion no lo tenga
     establecido
 
+PRUEBAS DE SISTEMA
+    estos archivos se encuentran en la carpeta "tests"
+    estas pruebas son ejecutadas con el comando "npm run test"
+

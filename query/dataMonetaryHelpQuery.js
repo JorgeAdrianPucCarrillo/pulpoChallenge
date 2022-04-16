@@ -1,7 +1,7 @@
 const msg = require('../utils/message');
 const sortInfo = require('../utils/sortInfo');
-const saveInfo = require('../utils/savedInfo');
-const config = require('../config/config.js')
+const config = require('../config/config.js');
+const expireCache = require('expire-cache');
 const axios = require('axios');
 class dataMonetaryHelpQuery {
     async dataMonetaryHelp(countryId, year) {
@@ -20,9 +20,9 @@ class dataMonetaryHelpQuery {
             }
 
             // verificando si existe en cache ------------------------------------------
-            const cacheInfo = saveInfo.readRequest(countryId, year)
+            const cacheInfo = expireCache.get(countryId+year)
             if (cacheInfo) {
-                let respCache = JSON.parse(cacheInfo)
+                let respCache = cacheInfo
                 return msg.msgSuccess(200,'exito',respCache)
             }
             
@@ -33,10 +33,12 @@ class dataMonetaryHelpQuery {
             try{
                 const response = await axios.get(hostUrls, tockenHeader)
                 const resp = sortInfo.sortInformation(response.data.response, year)
-                saveInfo.writeRequest(resp,countryId, year)
+                let saveCache = {}
+                saveCache[countryId+year]=resp
+                expireCache.set(saveCache,10)
                 return msg.msgSuccess(200,'exito',resp)
             }catch(e){
-                const mensaje = msg.msgError(502, 'error durante la conexion');
+                const mensaje = msg.msgError(502, 'error durante la conexion al servidor');
                 return mensaje
             }
         }catch(error){

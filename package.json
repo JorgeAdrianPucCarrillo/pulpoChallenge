@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.26.1",
+    "expire-cache": "^1.0.0",
     "express": "^4.17.3",
     "helmet": "^5.0.2",
     "swagger-jsdoc": "^6.2.0",

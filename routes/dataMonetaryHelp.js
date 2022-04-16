@@ -1,4 +1,4 @@
-const dataMonetaryHelpController = require('../controllers/dataMonetaryHelpController');
+const dataMonetaryAidController = require('../controllers/dataMonetaryAidController');
 
 module.exports = (app) => {
     /**
@@ -63,7 +63,8 @@ module.exports = (app) => {
      *       description: organizationName would be substituted with name of the organization who made the charity, the value number is the quantity of that transaction
      *     
     */
-    app.get('/humanitarian/aid/:countryId/:year', dataMonetaryHelpController.informationRequest);
+    app.get('/humanitarian/aid/:countryId/:year/json', dataMonetaryAidController.informationRequestAsJson);
+    app.get('/humanitarian/aid/:countryId/:year/array', dataMonetaryAidController.informationRequestAsArray);
     /**
      * @swagger
      * /humanitarian/aid/sudan:
@@ -109,5 +110,6 @@ module.exports = (app) => {
      *     description: description about what causes it 
      *     
     */
-    app.get('/humanitarian/aid/sudan', dataMonetaryHelpController.informationRequestSudan);
+    app.get('/humanitarian/aid/sudan/json', dataMonetaryAidController.informationRequestSudanJson);
+    app.get('/humanitarian/aid/sudan/array', dataMonetaryAidController.informationRequestSudanArray);
 }

@@ -1,18 +1,29 @@
-const validateResponseObj = require('../query/dataMonetaryHelpQuery');
+const sortInfo = require('../utils/sortInfo');
 
-test('find sudan id: SD in year 2021 ', () => {
-    return validateResponseObj.dataMonetaryHelp('SD',2021, response => {
-      expect(response.status).toBe(200);
-    });
-  });
+//test('return empty body with a no obj parm to sort', () => {
+//    expect(sortInfo.sortInformationAsArray('sampleinvalid',2020)).toStrictEqual([]);
+//  });
 
-test('return empty obj with random invaid ID like: ASFWRGSASD with a valid year ', () => {
-    return validateResponseObj.dataMonetaryHelp('ASFWRGSASD',2021, response => {
-      expect(response.data).toBe({});
-    });
-  });
-test('returns error with a year greater than the current, with a valid ID', () => {
-    return validateResponseObj.dataMonetaryHelp('SD',2025, response => {
-      expect(response.status).toBe(400);
-    });
-  });
+const infoExample ={docs:[
+    {
+      transaction_value: [ 51210 ],
+      participating_org_ref: [ 'GB-GOV-1' ],
+      participating_org_narrative: [ 'UK - Foreign, Commonwealth and Development Office' ],
+      transaction_value_value_date: [ '2016-12-31T00:00:00Z' ]
+    },
+  ]}
+const expectedObj =[
+  {
+      "yearTransaction": 2016,
+      "organizations": [
+          {
+              "name": "UK - Foreign, Commonwealth and Development Office",
+              "value": 51210
+          }
+      ]
+  },
+]
+
+test('return sorted Info', () => {
+    expect(sortInfo.sortInformationAsArray(infoExample ,2021)).toStrictEqual(expectedObj);
+});

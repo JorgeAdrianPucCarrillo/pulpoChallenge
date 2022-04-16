@@ -31,11 +31,6 @@
         transaction_value_value_date: [ '2019-03-19T00:00:00Z', '2019-02-08T00:00:00Z' ]
     },
 
-    // async await vs promise
-        se ha optado por usar promise en lugar de async await en las funciones de writeRequest()
-        debido a que el usuario no tiene necesidad de esperar a que el sistema termine de guardar la informacion 
-        para poder recibir su respuesta
-
     //  el Middleware debe cumplir en mostrar los archivos de 5 años a atras
         no de los ultimo 5 años que se tengan registro
         asi que en dado caso que en el rango de AñoSolicitado - (AñoSolicitado -5) solo 

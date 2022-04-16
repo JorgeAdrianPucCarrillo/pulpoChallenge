@@ -4,7 +4,7 @@
   "description": "aplicacion que en cada solicitud obtiene los datos de la API de Openaid y los agregue en el formato especificado. en respuesta a \"pulpo challenge\"",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm testPulpo"
   },
   "keywords": [
     "pulpo"
@@ -16,6 +16,7 @@
     "expire-cache": "^1.0.0",
     "express": "^4.17.3",
     "helmet": "^5.0.2",
+    "jest": "^27.5.1",
     "swagger-jsdoc": "^6.2.0",
     "swagger-ui-express": "^4.3.0"
   }

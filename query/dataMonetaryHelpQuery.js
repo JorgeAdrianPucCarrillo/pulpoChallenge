@@ -43,7 +43,7 @@ class dataMonetaryHelpQuery {
                 return mensaje
             }
         }catch(error){
-            mensaje = msg.msgError(400, 'no se pudo obtener información');
+            const mensaje = msg.msgError(400, 'no se pudo obtener información');
             return mensaje
         }
     }

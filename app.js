@@ -27,7 +27,6 @@ app.use("/api-doc",swaggerUIDoc.serve,swaggerUIDoc.setup(swaggerJsDoc(swaggerCon
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 const routes = require('./routes');
-const { servers } = require('mongodb/lib/core/topologies/server');
 routes(app)
 try {
   server.listen(config.confiLoad().port, () => {

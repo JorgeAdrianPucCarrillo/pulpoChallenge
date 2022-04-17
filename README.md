@@ -1,8 +1,10 @@
 API PULPU CHALLENGE
 
 INSTALACION
-    para instalar los paquetes necesarios para su ejecucion se requiere tener previamente instalado NodeJS en su version 10.24.0 o superior
-    teniendo ello accediendo via consola a la carpeta del sistema se ejecuta el comando "npm install"
+
+    para instalar los paquetes necesarios para su ejecucion se requiere tener previamente instalado 
+    NodeJS en su version 10.24.0 o superior teniendo ello accediendo via consola a la carpeta del 
+    sistema se ejecuta el comando "npm install"
     
 EJECUCION DEL SISTEMA 
 
@@ -19,11 +21,13 @@ CONFIGURACION DEL SISTEMA
     establecido
 
 PRUEBAS DE SISTEMA
+
     estos archivos se encuentran en la carpeta "tests"
     estas pruebas son ejecutadas con el comando "npm run test"
     estas pruebas son hechas con ayuda de la libreria "jest"
 
 DOCUMENTACION
+
     el sistema una ves ha sido ejecutado debera correr en el puerto 3000
     adicional a esto con ayuda de las librerias "swagger" puedes acceder 
     una pagina para apreciar la DOCUMENTACION de uso de el mismo sistema

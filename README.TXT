@@ -21,4 +21,12 @@ CONFIGURACION DEL SISTEMA
 PRUEBAS DE SISTEMA
     estos archivos se encuentran en la carpeta "tests"
     estas pruebas son ejecutadas con el comando "npm run test"
+    estas pruebas son hechas con ayuda de la libreria "jest"
+
+DOCUMENTACION
+    el sistema una ves ha sido ejecutado debera correr en el puerto 3000
+    adicional a esto con ayuda de las librerias "swagger" puedes acceder 
+    una pagina para apreciar la DOCUMENTACION de uso de el mismo sistema
+    en el vinculo http://localhost:3000/api-doc/ o en caso de ser 
+    modificado http://tuHost/api-doc/
 

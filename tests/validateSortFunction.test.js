@@ -3,7 +3,7 @@ const sortInfo = require('../utils/sortInfo');
 //pruebas json
 
 test('return empty body with a no obj parm to sort', () => {
-  expect(sortInfo.sortInformationAsArray('sampleinvalid',2020)).toStrictEqual({});
+  expect(sortInfo.sortInformationAsJson('sampleinvalid',2020)).toStrictEqual({});
 });
 
 //pruebas array

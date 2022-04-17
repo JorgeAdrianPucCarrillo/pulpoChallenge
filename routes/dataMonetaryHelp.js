@@ -153,7 +153,7 @@ module.exports = (app) => {
     app.get('/humanitarian/aid/:countryId/:year/array', dataMonetaryAidController.informationRequestAsArray);
     /**
      * @swagger
-     * /humanitarian/aid/sudan:
+     * /humanitarian/aid/sudan/json:
      *  get:
      *   summary: Return last five Years Records of humanitarian aid to Sudan in a json format
      *   tags: [Humanitarian Aid Sudan Json Formated]

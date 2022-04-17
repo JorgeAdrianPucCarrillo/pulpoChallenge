@@ -224,19 +224,6 @@ module.exports = (app) => {
      *  get:
      *   summary: Return last five Years Records of humanitarian aid to a country since a selected year in a data array sorted format
      *   tags: [Humanitarian Aid Sudan Array Formated]
-     *   parameters:
-     *    - in: path
-     *      name: countryId
-     *      schema:
-     *           type: string
-     *      required: true
-     *      description: String Id of the country who recips the humanitarian aid
-     *    - in: path
-     *      name: year
-     *      schema:
-     *           type: number
-     *      required: true
-     *      description: Year to start the research
      *   responses:
      *    200:
      *     description: return the records with the organizations and his amounts sorted by year

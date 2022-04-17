@@ -10,7 +10,7 @@ class dataMonetaryHelpQuery {
             //verificando fecha ------------------------------------------
             try{
                 lessTime=Number(year)-5
-                if (lessTime<0 || lessTime > new Date().getFullYear()){
+                if (lessTime<0 || year > new Date().getFullYear()){
                     const mensaje = msg.msgError(400, 'La fecha debe ser una fecha real');
                     return reject(mensaje);
                 }
@@ -52,7 +52,7 @@ class dataMonetaryHelpQuery {
             //verificando fecha ------------------------------------------
             try{
                 lessTime=Number(year)-5
-                if (lessTime<0 || lessTime > new Date().getFullYear()){
+                if (lessTime<0 || year > new Date().getFullYear()){
                     const mensaje = msg.msgError(400, 'La fecha debe ser una fecha real');
                     return reject(mensaje);
                 }

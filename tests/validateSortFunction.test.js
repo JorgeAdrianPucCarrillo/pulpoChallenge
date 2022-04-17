@@ -1,8 +1,16 @@
 const sortInfo = require('../utils/sortInfo');
 
-//test('return empty body with a no obj parm to sort', () => {
-//    expect(sortInfo.sortInformationAsArray('sampleinvalid',2020)).toStrictEqual([]);
-//  });
+//pruebas json
+
+test('return empty body with a no obj parm to sort', () => {
+  expect(sortInfo.sortInformationAsArray('sampleinvalid',2020)).toStrictEqual({});
+});
+
+//pruebas array
+
+test('return empty body with a no obj parm to sort', () => {
+    expect(sortInfo.sortInformationAsArray('sampleinvalid',2020)).toStrictEqual([]);
+  });
 
 const infoExample ={docs:[
     {
